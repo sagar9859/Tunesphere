@@ -1,0 +1,55 @@
+{% extends 'tunesphere/basic.html' %}
+
+{% block title %} Watch Later{% endblock %}
+
+
+{% block body %}
+<style>
+    h1 {
+        color: red;
+        text-align: center;
+        font-weight: 700;
+        margin: 20px;
+    }
+
+    .card {
+
+        margin: auto;
+
+    }
+    h3{
+        font-weight: 700;
+        font-size: 30px;
+        color: black;
+        text-align: center;
+    }
+</style>
+
+
+{% load static %}
+<h1 class="head">Watch Later</h1>
+{% if song|length < 1 %} 
+       <h3>You have not added any songs yet</h3>
+ {% endif %}
+
+
+    {% for i in song reversed %}
+    <div class="card mb-3" style="max-width: 940px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="/media/{{i.image}}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <p class="card-text"> {{i.tags}} </p>
+                    <p class="card-text" style="color: green;">Singer: {{i.singer}}</p>
+                    <p class="card-text" style="color: rgb(179, 11, 103);">Movie: {{i.album}}</p>
+                    <a href="/tunesphere/songs/{{i.song_id}}"><button class="btn btn-outline-danger">Listen
+                            Song</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endblock %}

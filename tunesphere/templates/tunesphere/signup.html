@@ -1,0 +1,99 @@
+{% extends 'tunesphere/basic.html' %}
+
+{% block title %} SignUp {% endblock %}
+
+{% block body %}
+<style>
+    .container {
+
+        background-color: rgb(116, 187, 218);
+        width: 480px;
+        height: 550px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* border: 1px solid black; */
+        border-radius: 10px;
+        box-shadow: 12px 12px 2px 1px rgb(99, 93, 93);
+
+    }
+
+    h1 {
+        text-align: center;
+        width: 450px;
+        /* background-color: rgb(216, 165, 228); */
+        /* border: 1px solid black; */
+        color: white;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 3px;
+        margin-bottom: 5px;
+        font-weight: 700;
+        font-size: 42px;
+        /* box-shadow: 8px 5px 5px rgb(99, 93, 93); */
+        text-shadow: 3px 3px 3px rgb(203, 90, 234), 0 0 1em rgb(89, 89, 243);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    #btt {
+        margin-top: 20px;
+        margin-left: 120px;
+        background-color: blueviolet;
+        font-weight: 700;
+
+    }
+
+    .em {
+        font-size: 20px;
+    }
+
+    .form-control {
+        background-color: rgb(235, 235, 235);
+        width: 300px;
+        border: 1px solid red;
+        border-radius: 5px;
+
+    }
+    .form-group{
+        padding: 0px;
+        margin: 1px;
+    }
+</style>
+
+<h1>SignUp</h1>
+<div class="container">
+    <form method="POST" action="/tunesphere/signup">{% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="em">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="em">User Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="username">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="em">First Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="firstname">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="em">Last Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="lastname">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="em">Password</label>
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="pass1">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="em">Password(Again)</label>
+            <input type="password" class="form-control" id="exampleFormControlInput1" name="pass2">
+        </div>
+        <button type="submit" id="btt" class="btn btn-primary">Sign Up</button>
+    </form>
+</div>
+
+{% endblock %}

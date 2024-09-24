@@ -1,0 +1,82 @@
+{% extends 'tunesphere/basic.html' %}
+
+{% block title %} LogIn {% endblock %}
+
+{% block body %}
+
+<style>
+  
+    .container {
+        background-color: rgb(116, 187, 218);
+        width: 450px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* border: 1px solid black; */
+        border-radius: 10px;
+        box-shadow: 12px 12px 2px 1px rgb(99, 93, 93);
+
+    }
+
+    h1 {
+        text-align: center;
+        width: 450px;
+        /* background-color: rgb(216, 165, 228); */
+        /* border: 1px solid black; */
+        color:white;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-size: 56px;
+        /* box-shadow: 8px 5px 5px rgb(99, 93, 93); */
+        text-shadow: 3px 3px 3px rgb(203, 90, 234), 0 0 1em rgb(89, 89, 243);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    #btt {
+        margin-top: 20px;
+        margin-left: 100px;
+        background-color: blueviolet;
+        font-weight: 700;
+
+    }
+
+    .em {
+        font-size: 25px;
+    }
+
+    .form-control {
+        background-color: rgb(235, 235, 235);
+        width: 300px;
+        border: 1px solid red;
+        border-radius: 5px;
+
+    }
+</style>
+ 
+
+<div class="bdd">
+    <h1>Login</h1>
+    <div class="container">
+
+        <form method="POST" action="/tunesphere/login"> {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="em">User Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email" name="username">
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small> -->
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1" class="em">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+            </div>
+            
+            <button type="submit" id="btt" class="btn btn-primary">Log In</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
